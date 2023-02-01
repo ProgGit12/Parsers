@@ -26,7 +26,7 @@ ccilca_sportsman_mass = []
 
 
 try:
-    for i in range(1,50):
+    for i in range(1,25):
         driver.get(f"https://www.liveresult.ru/tennis/players/p{i}")
         time.sleep(3)
 
