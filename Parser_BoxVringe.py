@@ -10,7 +10,17 @@ import pandas as pd
 import numpy as np
 
 # Здесь создаю браузер и перехожу на сайт
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
+options = Options()
+options.add_experimental_option(
+    'prefs',
+    {
+        'profile.managed_default_content_settings.javascript': 2,
+        'profile.managed_default_content_settings.images': 2,
+        'profile.managed_default_content_settings.mixed_script': 2,
+    }
+)
+
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
 # driver.get("https://www.sports.ru/boxing/sportsman/")
 
 link_mass = []
@@ -27,7 +37,7 @@ ccilca_sportsman_mass = []
 
 
 # try:
-for i in range(1,155):
+for i in range(1):
     driver.get(f"https://vringe.com/dossier/search/?PAGEN_1={i}")
     time.sleep(2)
 
@@ -120,7 +130,7 @@ for i in range(1,155):
         name_mass.append(name)
         ccilca_sportsman_mass.append(link)
 
-        time.sleep(2)
+        time.sleep(1)
 
 
     link_mass.clear()
