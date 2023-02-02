@@ -139,19 +139,19 @@ for i in range(53, 156):
 
 
 
-    dfPlayer_Inf = pd.DataFrame({
-            'Name': pd.Series(name_mass, dtype='object'),
-            'Birthday': pd.Series(birthday_mass),
-            'Height': pd.Series(height_mass),
+dfPlayer_Inf = pd.DataFrame({
+        'Name': pd.Series(name_mass, dtype='object'),
+        'Birthday': pd.Series(birthday_mass),
+        'Height': pd.Series(height_mass),
 
-            'Country': pd.Series(сountry_mass),
-            'Place_of_birth': pd.Series(place_of_birth_mass),
-            'Hand': pd.Series(hand_mass),
+        'Country': pd.Series(сountry_mass),
+        'Place_of_birth': pd.Series(place_of_birth_mass),
+        'Hand': pd.Series(hand_mass),
 
-            'Link': pd.Series(ccilca_sportsman_mass),
-        })
+        'Link': pd.Series(ccilca_sportsman_mass),
+    })
 
-    dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table(Box_Vringe)2.csv', index=False, sep=';', encoding='utf-8-sig')
+dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table(Box_Vringe)2.csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()
