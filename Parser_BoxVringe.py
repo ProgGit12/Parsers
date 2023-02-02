@@ -37,7 +37,7 @@ ccilca_sportsman_mass = []
 
 
 # try:
-for i in range(1):
+for i in range(53, 156):
     driver.get(f"https://vringe.com/dossier/search/?PAGEN_1={i}")
     time.sleep(2)
 
@@ -49,6 +49,7 @@ for i in range(1):
             link_mass.append(link12.get_attribute('href'))
 
     for link in link_mass:
+        print(i)
         driver.get(link)
 
         divs = driver.find_elements(by=By.CLASS_NAME, value='dprop')
@@ -150,7 +151,7 @@ for i in range(1):
             'Link': pd.Series(ccilca_sportsman_mass),
         })
 
-    dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table3.csv', index=False, sep=';', encoding='utf-8-sig')
+    dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table(Box_Vringe)2.csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()
