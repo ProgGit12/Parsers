@@ -36,7 +36,7 @@ ccilca_sportsman_mass = []
 
 
 
-for i in range(1,25):
+for i in range(1,301):
     driver.get(f"https://www.liveresult.ru/tennis/players/p{i}")
     time.sleep(3)
 
@@ -163,7 +163,7 @@ dfPlayer_Inf = pd.DataFrame({
         'Link': pd.Series(ccilca_sportsman_mass),
     })
 
-dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table2.csv', index=False, sep=';', encoding='utf-8-sig')
+dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table(Tennis_Liveresult).csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()

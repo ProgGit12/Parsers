@@ -8,9 +8,17 @@ import time
 import re
 import pandas as pd
 import numpy as np
-
+options = Options()
+options.add_experimental_option(
+    'prefs',
+    {
+        'profile.managed_default_content_settings.javascript': 2,
+        'profile.managed_default_content_settings.images': 2,
+        'profile.managed_default_content_settings.mixed_script': 2,
+    }
+)
 # Здесь создаю браузер и перехожу на сайт
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
 # driver.get("https://www.sports.ru/boxing/sportsman/")
 
 link_mass = []
