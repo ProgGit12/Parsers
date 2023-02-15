@@ -100,7 +100,7 @@ dfPlayer_Inf = pd.DataFrame({
         'Link': pd.Series(ccilca_sportsman_mass),
     })
 
-dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/table(Table_Tennis_rttf2).csv', index=False, sep=';', encoding='utf-8-sig')
+dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Sportsman(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()

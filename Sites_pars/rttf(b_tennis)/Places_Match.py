@@ -83,17 +83,17 @@ for link in link_mass:
 
     print()
 
-# dfPlayer_Inf = pd.DataFrame({
-#         'Name': pd.Series(name_mass, dtype='object'),
-#         'Date': pd.Series(date_mass),
-#
-#         'Address': pd.Series(address_mass),
-#         'Club': pd.Series(club_mass),
-#
-#         'Link': pd.Series(ccilca_sportsman_mass),
-#     })
-#
-# dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/rttf(b_tennis)/Table_match.csv', index=False, sep=';', encoding='utf-8-sig')
+dfPlayer_Inf = pd.DataFrame({
+        'Name': pd.Series(name_mass, dtype='object'),
+        'Date': pd.Series(date_mass),
+
+        'Address': pd.Series(address_mass),
+        'Club': pd.Series(club_mass),
+
+        'Link': pd.Series(ccilca_sportsman_mass),
+    })
+
+dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Places_Match(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()
