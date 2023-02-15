@@ -1,5 +1,32 @@
-﻿Name;Date;Address;Club;Link
-;;;;"<selenium.webdriver.remote.webelement.WebElement (session=""23f3f9ff431be913db22411fc3aa33db"", element=""e32d48ed-80ca-43ae-a51e-429fff813b1d"")>"
-;;;;"<selenium.webdriver.remote.webelement.WebElement (session=""23f3f9ff431be913db22411fc3aa33db"", element=""b3ded81c-2482-4bba-ab59-f3f2ce9119ad"")>"
-;;;;"<selenium.webdriver.remote.webelement.WebElement (session=""23f3f9ff431be913db22411fc3aa33db"", element=""0ce7bcc5-4223-4c52-8065-be283ceedc20"")>"
-;;;;"<selenium.webdriver.remote.webelement.WebElement (session=""23f3f9ff431be913db22411fc3aa33db"", element=""de372323-f7ed-4747-a52c-f599b82352c7"")>"
+﻿Name;Address;Status;Link
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/10609
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/10543
+Люблино;г. Москва, ул. Белореченская, д. 3 (этаж 2);отк;https://rttf.ru/tournaments/10041
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/10156
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/10151
+ВПТ Авиа;г. Москва, Авиамоторная ул., д. 8а;отк;https://rttf.ru/tournaments/9894
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8682
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/89445
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8681
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8676
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/89444
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8673
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8672
+Люблино;г. Москва, ул. Белореченская, д. 3 (этаж 2);отк;https://rttf.ru/tournaments/8919
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/89443
+ФилиТТ;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);отк;https://rttf.ru/tournaments/9034
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/89442
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8068
+Лосинка;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);отк;https://rttf.ru/tournaments/89441
+ФилиТТ;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);отк;https://rttf.ru/tournaments/8170
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8059
+ФилиТТ;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);отк;https://rttf.ru/tournaments/8138
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/8050
+Ping-Pong House;г. Сочи, ул. Донская, д. 3/9;отк;https://rttf.ru/tournaments/8312
+Люблино;г. Москва, ул. Белореченская, д. 3 (этаж 2);отк;https://rttf.ru/tournaments/7567
+ФилиТТ;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);отк;https://rttf.ru/tournaments/8116
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/6845
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/6837
+ArtTT-Первом;г. Москва, ул. 9-я Парковая, д. 31;отк;https://rttf.ru/tournaments/6834
+Люблино;г. Москва, ул. Белореченская, д. 3 (этаж 2);отк;https://rttf.ru/tournaments/6432
+ФилиТТ;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);отк;https://rttf.ru/tournaments/6718
