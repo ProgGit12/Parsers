@@ -38,7 +38,7 @@ ccilca_sportsman_mass = []
 
 
 # for i in range(1,301):
-driver.get(f"https://rttf.ru/players")
+driver.get(f"https://rttf.ru/players/")
 time.sleep(30)
 
 tr = driver.find_elements(by=By.TAG_NAME, value='tr')
@@ -55,7 +55,7 @@ for link in link_mass:
     # print(link)
     driver.get(link)
 
-    section = driver.find_element(by=By.TAG_NAME, value='section')
+    section = driver.find_element(by=By.CLASS_NAME, value='player-results')
     span = section.find_elements(by=By.TAG_NAME, value='p')
 
 
