@@ -69,7 +69,7 @@ for link in link_mass:
     driver.get('https://yandex.ru/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11')
     time.sleep(4)
     input = driver.find_element(by=By.CLASS_NAME, value='input__control').send_keys(f"{address}\n")
-    time.sleep(5)
+    time.sleep(4)
     try:
         shir_dolg = driver.find_element(by=By.CLASS_NAME, value='toponym-card-title-view__coords-badge').text
     except:
