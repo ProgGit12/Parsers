@@ -1,21 +1,21 @@
-﻿Name;Site_club;Address;Link
-ATT Клуб настольного тенниса в Паттайе;https://table-tennis-pattaya.com/;г. Паттайя, Beach road, soi 12, Mike Shopping Mall, 3-й этаж;https://rttf.ru/halls/508
-КРЕПОСТЬ Дербент;89285191771 ватсап;г. Дербент, ул. Генерала Сеидова, д. 71;https://rttf.ru/halls/457
-Сергиев Посад;https://vk.com/sptabletennis;г. Сергиев Посад, ул. Дружбы, д. 2Б;https://rttf.ru/halls/157
-ADD;https://addsport.kz/ru/o-centre;г. Алматы, Микрорайон Нуркент, д. 14Б;https://rttf.ru/halls/473
-"Клуб настольного тенниса ""Люблино""";https://теннисок.рф;г. Москва, ул. Белореченская, д. 3 (этаж 2);https://rttf.ru/halls/385
-Table Tennis Club - Нижний Новгород;0;г. Нижний Новгород, Георгиевский съезд, д. 5;https://rttf.ru/halls/116
-Клуб настольного тенниса Maximum;https://vk.com/knt_maximum;г. Анапа, ул. Чехова, д. 35;https://rttf.ru/halls/499
-Newton Arena;https://newtonarena.ru;г. Москва, 1-й Нагатинский пр-д 10 стр.3;https://rttf.ru/halls/62
-SpinArt;https://www.spinart.ru;г. Москва, Кленовый б-р, д. 23, 4 эт.;https://rttf.ru/halls/484
-кнт TENIX;http://www.tenix.club/;г. Москва, Новочеремушкинская ул., д. 25, этаж 6;https://rttf.ru/halls/127
-"""Таганрог. ТАВИАК""";0;г. Таганрог, ул. Чехова, д. 75;https://rttf.ru/halls/272
-ФилиТТ;0;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);https://rttf.ru/halls/360
-"Центр настольного тенниса ""Южный""";0;г. Киров, ул. Агрономическая, д. 7;https://rttf.ru/halls/490
-ArtTT - Первомайская;www.TTFA.ru;г. Москва, ул. 9-я Парковая, д. 31;https://rttf.ru/halls/377
-Point;https://point-club.ru/;г. Москва, ул. Чертановская, д. 1А, к. 2, эт. 4;https://rttf.ru/halls/406
-Центр ракеточных видов спорта Space;https://racketspace.ru/schedule/tabletennis/;г. Химки, ул. Кирова, с. 24;https://rttf.ru/halls/135
-V2 Table Tennis Club;0;г. Москва, ул. Сторожевая, дом 23, строение 1, 2 этаж.;https://rttf.ru/halls/483
-ЛуЦентр;http://table-tennis-club.ru;г. Москва, Старокирочный пер., д. 2;https://rttf.ru/halls/75
-MatchBall;https://instagram.com/matchballclub?igshid=MWI4MTIyMDE=;г. Алматы, ул. Макатаева, д. 137;https://rttf.ru/halls/513
-"Клуб настольного тенниса ""TnClub"" в ОДЦ ""Айсберг""";http://tnclub.ru;"г. Мытищи, ул. 3-я Крестьянская, стр. 23, 4-й эт. Общественно-деловой центр ""Айсберг""";https://rttf.ru/halls/72
+﻿Name;Site_club;Address;Shir_Dolg;Link
+ATT Клуб настольного тенниса в Паттайе;https://table-tennis-pattaya.com/;г. Паттайя, Beach road, soi 12, Mike Shopping Mall, 3-й этаж;0;https://rttf.ru/halls/508
+КРЕПОСТЬ Дербент;89285191771 ватсап;г. Дербент, ул. Генерала Сеидова, д. 71;42.072074, 48.278536;https://rttf.ru/halls/457
+Сергиев Посад;https://vk.com/sptabletennis;г. Сергиев Посад, ул. Дружбы, д. 2Б;56.324167, 38.137814;https://rttf.ru/halls/157
+ADD;https://addsport.kz/ru/o-centre;г. Алматы, Микрорайон Нуркент, д. 14Б;43.258630, 76.815299;https://rttf.ru/halls/473
+"Клуб настольного тенниса ""Люблино""";https://теннисок.рф;г. Москва, ул. Белореченская, д. 3 (этаж 2);55.674377, 37.769271;https://rttf.ru/halls/385
+Клуб настольного тенниса Maximum;https://vk.com/knt_maximum;г. Анапа, ул. Чехова, д. 35;44.885840, 37.331710;https://rttf.ru/halls/499
+Newton Arena;https://newtonarena.ru;г. Москва, 1-й Нагатинский пр-д 10 стр.3;55.678042, 37.630966;https://rttf.ru/halls/62
+SpinArt;https://www.spinart.ru;г. Москва, Кленовый б-р, д. 23, 4 эт.;55.675915, 37.681541;https://rttf.ru/halls/484
+кнт TENIX;http://www.tenix.club/;г. Москва, Новочеремушкинская ул., д. 25, этаж 6;55.680823, 37.578945;https://rttf.ru/halls/127
+"""Таганрог. ТАВИАК""";0;г. Таганрог, ул. Чехова, д. 75;47.207596, 38.929822;https://rttf.ru/halls/272
+ФилиТТ;0;г. Москва, Багратионовский пр., д. 5 (ТЦ Филион 4 этаж);0;https://rttf.ru/halls/360
+"Центр настольного тенниса ""Южный""";0;г. Киров, ул. Агрономическая, д. 7;58.570630, 49.673961;https://rttf.ru/halls/490
+ArtTT - Первомайская;www.TTFA.ru;г. Москва, ул. 9-я Парковая, д. 31;55.797690, 37.797936;https://rttf.ru/halls/377
+Point;https://point-club.ru/;г. Москва, ул. Чертановская, д. 1А, к. 2, эт. 4;55.638668, 37.607619;https://rttf.ru/halls/406
+Центр ракеточных видов спорта Space;https://racketspace.ru/schedule/tabletennis/;г. Химки, ул. Кирова, с. 24;55.883792, 37.454375;https://rttf.ru/halls/135
+V2 Table Tennis Club;0;г. Москва, ул. Сторожевая, дом 23, строение 1, 2 этаж.;55.765777, 37.714644;https://rttf.ru/halls/483
+ЛуЦентр;http://table-tennis-club.ru;г. Москва, Старокирочный пер., д. 2;55.768512, 37.680068;https://rttf.ru/halls/75
+"Клуб настольного тенниса ""TnClub"" в ОДЦ ""Айсберг""";http://tnclub.ru;"г. Мытищи, ул. 3-я Крестьянская, стр. 23, 4-й эт. Общественно-деловой центр ""Айсберг""";0;https://rttf.ru/halls/72
+"Центр настольного тенниса ""Крылья Советов""";0;"г. Москва, ул. Толбухина, д. 10, к. 4, ДС ""Крылья Советов""";0;https://rttf.ru/halls/1
+ТОПС-Лосинка;0;г. Москва, ул. Летчика Бабушкина, д. 17, к. 1 (на Яндекс картах 17А);55.864364, 37.673744;https://rttf.ru/halls/361

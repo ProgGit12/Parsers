@@ -27,6 +27,7 @@ address_mass = []
 club_mass = []
 status_mass = []
 official_site_club_mass = []
+shir_dolg_mass = []
 
 ccilca_club_mass = []
 
@@ -55,6 +56,7 @@ for link in link_mass:
     date = 0
     address = 0
     club = 0
+    shir_dolg = 0
     official_site_club = 0
 
 
@@ -64,14 +66,22 @@ for link in link_mass:
         elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Официальный сайт":
             official_site_club = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
 
-    # driver.get('https://yandex.ru/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11')
-    # input = driver.find_element(by=By.CLASS_NAME, value='input__control').send_keys(f"{address}\n")
+    driver.get('https://yandex.ru/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11')
+    time.sleep(4)
+    input = driver.find_element(by=By.CLASS_NAME, value='input__control').send_keys(f"{address}\n")
+    time.sleep(5)
+    try:
+        shir_dolg = driver.find_element(by=By.CLASS_NAME, value='toponym-card-title-view__coords-badge').text
+    except:
+        pass
+
 
     address_mass.append(address)
     club_mass.append(name)
     # status_mass.append(status)
     official_site_club_mass.append(official_site_club)
     ccilca_club_mass.append(link)
+    shir_dolg_mass.append(shir_dolg)
 
     time.sleep(1)
 
@@ -80,6 +90,7 @@ dfPlayer_Inf = pd.DataFrame({
         'Name': pd.Series(club_mass, dtype='object'),
         'Site_club': pd.Series(official_site_club_mass, dtype='object'),
         'Address': pd.Series(address_mass, dtype='object'),
+        'Shir_Dolg': pd.Series(shir_dolg_mass, dtype='object'),
 
         'Link': pd.Series(ccilca_club_mass, dtype='object'),
     })
