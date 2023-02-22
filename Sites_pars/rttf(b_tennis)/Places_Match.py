@@ -28,12 +28,14 @@ club_mass = []
 status_mass = []
 official_site_club_mass = []
 shir_dolg_mass = []
+working_hours_mass = []
+contact_mass = []
+representative_on_site_mass = []
+number_of_tables_mass = []
 
 ccilca_club_mass = []
 
 
-# for i in range(1,301):
-# driver.get(f"https://rttf.ru/players")
 driver.get(f"https://rttf.ru/halls/?title=")
 time.sleep(2)
 
@@ -58,6 +60,10 @@ for link in link_mass:
     club = 0
     shir_dolg = 0
     official_site_club = 0
+    working_hours = 0
+    contact = 0
+    representative_on_site = 0
+    number_of_tables = 0
 
 
     for glav in p:
@@ -65,32 +71,46 @@ for link in link_mass:
             address = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
         elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Официальный сайт":
             official_site_club = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
+        elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Время работы":
+            working_hours = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
+        elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Контакты":
+            contact = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
+        elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Представитель на сайте":
+            representative_on_site = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
+        elif re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Кол-во столов":
+            number_of_tables = re.sub(r".{1,300}[:]\s", "", glav.text, 1)
 
-    driver.get('https://yandex.ru/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11')
-    time.sleep(4)
-    input = driver.find_element(by=By.CLASS_NAME, value='input__control').send_keys(f"{address}\n")
-    time.sleep(4)
-    try:
-        shir_dolg = driver.find_element(by=By.CLASS_NAME, value='toponym-card-title-view__coords-badge').text
-    except:
-        pass
+    # driver.get('https://yandex.ru/maps/2/saint-petersburg/?ll=30.315635%2C59.938951&z=11')
+    # time.sleep(4)
+    # input = driver.find_element(by=By.CLASS_NAME, value='input__control').send_keys(f"{address}\n")
+    # time.sleep(4)
+    # try:
+    #     shir_dolg = driver.find_element(by=By.CLASS_NAME, value='toponym-card-title-view__coords-badge').text
+    # except:
+    #     pass
 
 
     address_mass.append(address)
     club_mass.append(name)
-    # status_mass.append(status)
     official_site_club_mass.append(official_site_club)
-    ccilca_club_mass.append(link)
-    shir_dolg_mass.append(shir_dolg)
+    working_hours_mass.append(working_hours)
+    contact_mass.append(contact)
+    representative_on_site_mass.append(representative_on_site)
+    number_of_tables_mass.append(number_of_tables)
 
+    ccilca_club_mass.append(link)
     time.sleep(1)
 
 
 dfPlayer_Inf = pd.DataFrame({
         'Name': pd.Series(club_mass, dtype='object'),
-        'Site_club': pd.Series(official_site_club_mass, dtype='object'),
+        'Site club': pd.Series(official_site_club_mass, dtype='object'),
         'Address': pd.Series(address_mass, dtype='object'),
-        'Shir_Dolg': pd.Series(shir_dolg_mass, dtype='object'),
+        'Working hours': pd.Series(working_hours_mass, dtype='object'),
+        'Contact': pd.Series(contact_mass, dtype='object'),
+        'Representative on site': pd.Series(representative_on_site_mass, dtype='object'),
+        'Number of tables': pd.Series(number_of_tables_mass, dtype='object'),
+
 
         'Link': pd.Series(ccilca_club_mass, dtype='object'),
     })

@@ -108,7 +108,6 @@ for link in link_mass:
     visiting_mass.append(visiting)
 
     ccilca_sportsman_mass.append(link)
-    print()
     time.sleep(1)
 
 
