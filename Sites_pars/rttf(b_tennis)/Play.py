@@ -69,27 +69,37 @@ for link in link_mass:
     player_results = soup.find('section', class_='player-results')
 
     # a = player_results.findAllNext("a")
-    try:
-        a = player_results.find_all(href=re.compile("tournaments"))
-    # except:
-    #     pass
+    # try:
+    a = player_results.find_all(href=re.compile("tournaments"))
 
-        for i in a:
-            name_player = driver.find_element(by=By.TAG_NAME, value='h1').text
-            rating_player = driver.find_element(by=By.TAG_NAME, value='h3').text
-            date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)
-            tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s", "", i.text, 1)
-            time_match = re.search(r"\d{2}:\d{2}", i.text)
-            status = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s", "", i.text, 1)
+    name_player = 0
+    rating_player = 0
+    date = 0
+    tournament = 0
+    time_match = 0
+    status = 0
+    col_man = 0
+    origin = 0
+    stage = 0
+    enemy = 0
+    rating_enemy = 0
+    result_match = 0
+    time1 = 0
+    time2 = 0
 
+    for i in a:
+        name_player = driver.find_element(by=By.TAG_NAME, value='h1').text
+        rating_player = driver.find_element(by=By.CLASS_NAME, value='player-info').find_element(by=By.TAG_NAME, value='h3').text
+        date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)
+        tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
+        time_match = re.search(r"\d{2}:\d{2}", i.text)
+        status = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
 
-
-            # time.sleep(1)
-            # print('asd')
-            table = player_results.find('a', attrs={"href": f'{i.get("href")}'}).find_next_sibling("table")
-            td = table.find('tbody').findAll('td')
-            col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
-            # time.sleep(1)
+        table = player_results.find('a', attrs={"href": f'{i.get("href")}'}).find_next_sibling("table")
+        col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
+        tr = table.find('tbody').find('tr')
+        while tr != None:
+            td = tr.findAll('td')
 
             origin = td[0].text
             stage = td[1].text
@@ -98,28 +108,29 @@ for link in link_mass:
             result_match = td[4].text
             time1 = td[5].text
             time2 = td[6].text
-            time3 = td[7].text
+
+            tr = tr.next_sibling
+
 
             name_player_mass.append(name_player)
             rating_player_mass.append(rating_player)
-            date_mass.append(date.group(0))
+            date_mass.append(date[0])
             tournament_mass.append(tournament)
-            time_match_mass.append(time_match.group(0))
+            time_match_mass.append(time_match[0])
             status_mass.append(status)
             col_man_mass.append(col_man)
             origin_mass.append(origin)
             stage_mass.append(stage)
-            # enemy_mass.append(enemy)
-            # rating_enemy_mass.append(rating_enemy)
-            # result_match_mass.append(result_match)
-            # time1_mass.append(time1)
-            # time2_mass.append(time2)
-            # time3_mass.append(time3)
+            enemy_mass.append(enemy)
+            rating_enemy_mass.append(rating_enemy)
+            result_match_mass.append(result_match)
+            time1_mass.append(time1)
+            time2_mass.append(time2)
 
             ccilca_sportsman_mass.append(link)
 
-    except:
-        pass
+    # except:
+    #     pass
     # print()
     # time.sleep(1)
 
@@ -133,14 +144,13 @@ dfPlayer_Inf = pd.DataFrame({
         'Tournament': pd.Series(tournament_mass, dtype='object'),
         'Time match': pd.Series(time_match_mass, dtype='object'),
         'Status': pd.Series(status_mass, dtype='object'),
-        'col_man': pd.Series(col_man_mass, dtype='object'),
-        'origin': pd.Series(origin_mass, dtype='object'),
-        'enemy': pd.Series(enemy_mass, dtype='object'),
-        'rating': pd.Series(rating_enemy_mass, dtype='object'),
-        'result_match': pd.Series(result_match_mass, dtype='object'),
+        'Col man': pd.Series(col_man_mass, dtype='object'),
+        'Origin': pd.Series(origin_mass, dtype='object'),
+        'Enemy': pd.Series(enemy_mass, dtype='object'),
+        'Rating enemy': pd.Series(rating_enemy_mass, dtype='object'),
+        'Result match': pd.Series(result_match_mass, dtype='object'),
         'Time1': pd.Series(time1_mass, dtype='object'),
         'Time2': pd.Series(time2_mass, dtype='object'),
-        'Time3': pd.Series(time3_mass, dtype='object'),
 
         'Link': pd.Series(ccilca_sportsman_mass, dtype='object'),
     })
