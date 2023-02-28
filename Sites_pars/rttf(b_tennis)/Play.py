@@ -120,18 +120,21 @@ for link in link_mass:
         time2 = 0
 
         for i in a:
-            name_player = driver.find_element(by=By.TAG_NAME, value='h1').text
-            rating_player = driver.find_element(by=By.CLASS_NAME, value='player-info').find_element(by=By.TAG_NAME, value='h3').find_element(by=By.TAG_NAME, value='dfn').text
-            date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)[0]
-            tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
+
             if re.search(r"\d{2}:\d{2}", i.text) != None:
                 time_match = re.search(r"\d{2}:\d{2}", i.text)[0]
             else:
                 time_match = 0
+
+            name_player = driver.find_element(by=By.TAG_NAME, value='h1').text
+            rating_player = driver.find_element(by=By.CLASS_NAME, value='player-info').find_element(by=By.TAG_NAME, value='h3').find_element(by=By.TAG_NAME, value='dfn').text
+            date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)[0]
+            tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
             status = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
+            col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
+
 
             table = player_results.find('a', attrs={"href": f'{i.get("href")}'}).find_next_sibling("table")
-            col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
             tr = table.find('tbody').find('tr')
             while tr != None:
                 td = tr.findAll('td')
