@@ -54,12 +54,12 @@ dfPlayer_Inf = pd.DataFrame({
         'Time match': pd.Series(time_match_mass, dtype='object'),
         'Status': pd.Series(status_mass, dtype='object'),
         'Col man': pd.Series(col_man_mass, dtype='object'),
-        'Stage': pd.Series(stage_mass, dtype='object'),
+        'Stage': pd.Series(stage_mass, dtype='string'),
         'Number enemy': pd.Series(number_enemy_mass, dtype='object'),
         'Origin': pd.Series(origin_mass, dtype='object'),
         'Enemy': pd.Series(enemy_mass, dtype='object'),
         'Rating enemy': pd.Series(rating_enemy_mass, dtype='object'),
-        'Result match': pd.Series(result_match_mass, dtype='object'),
+        'Result match': pd.Series(result_match_mass, dtype='int'),
         'Time1': pd.Series(time1_mass, dtype='object'),
         'Time2': pd.Series(time2_mass, dtype='object'),
 
@@ -68,38 +68,27 @@ dfPlayer_Inf = pd.DataFrame({
 
 
 driver.get(f"https://rttf.ru/players/")
-time.sleep(10)
+time.sleep(25)
 
 
-tr = driver.find_elements(by=By.TAG_NAME, value='tr')
+# https://rttf.ru/players/314473
 
-for a_link in tr:
-    try:
-        a = a_link.find_elements(by=By.TAG_NAME, value='a')
-        link_mass.append(a[0].get_attribute('href'))
-    except IndexError:
-        pass
-
-print(len(link_mass))
-print(link_mass[-1])
-print()
-for link in link_mass:
-    driver.get(link)
+# for link in range(1, 900000):
+for link in range(1, 5):
+    driver.get(f'https://rttf.ru/players/{link}')
     time.sleep(1)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
+    time.sleep(2)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
+    time.sleep(2)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
+    time.sleep(2)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(3)
+    time.sleep(2)
+    # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    # time.sleep(3)
 
-
-
-    page = requests.get(link)
+    page = requests.get(f'https://rttf.ru/players/{link}')
     soup = BeautifulSoup(page.text, "lxml")
     player_results = soup.find('section', class_='player-results')
 
@@ -134,7 +123,9 @@ for link in link_mass:
             rating_player = driver.find_element(by=By.CLASS_NAME, value='player-info').find_element(by=By.TAG_NAME, value='h3').find_element(by=By.TAG_NAME, value='dfn').text
             date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)[0]
             tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
+            # tournament = re.sub(r".{1,200}\s", "", tournament, 1)
             status = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
+            status = re.sub(r"\s.{1,200}", "", status, 1)
             col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
 
 
@@ -152,15 +143,13 @@ for link in link_mass:
                 result_match = td[4].text
                 time1 = td[5].text
                 time2 = td[6].text
- 
+
                 tr = tr.next_sibling
                 dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name_player, rating_player, date, tournament, time_match, status, col_man, stage, number_enemy, origin, enemy, rating_enemy, result_match, time1, time2, link]
-
-                print()
     except:
-        print(link)
-        e = sys.exc_info()[1]
-        print(e.args[0])
+        # print(link)
+        # e = sys.exc_info()[1]
+        # print(e.args[0])
         pass
 
 
