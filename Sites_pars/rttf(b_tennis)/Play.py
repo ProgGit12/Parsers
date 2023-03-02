@@ -35,6 +35,7 @@ status_mass = []
 col_man_mass = []
 origin_mass = []
 stage_mass = []
+number_enemy_mass = []
 enemy_mass = []
 rating_enemy_mass = []
 result_match_mass = []
@@ -53,6 +54,8 @@ dfPlayer_Inf = pd.DataFrame({
         'Time match': pd.Series(time_match_mass, dtype='object'),
         'Status': pd.Series(status_mass, dtype='object'),
         'Col man': pd.Series(col_man_mass, dtype='object'),
+        'Stage': pd.Series(stage_mass, dtype='object'),
+        'Number enemy': pd.Series(number_enemy_mass, dtype='object'),
         'Origin': pd.Series(origin_mass, dtype='object'),
         'Enemy': pd.Series(enemy_mass, dtype='object'),
         'Rating enemy': pd.Series(rating_enemy_mass, dtype='object'),
@@ -111,8 +114,9 @@ for link in link_mass:
         time_match = 0
         status = 0
         col_man = 0
-        origin = 0
         stage = 0
+        number_enemy = 0
+        origin = 0
         enemy = 0
         rating_enemy = 0
         result_match = 0
@@ -120,7 +124,7 @@ for link in link_mass:
         time2 = 0
 
         for i in a:
-
+            number_enemy = 0
             if re.search(r"\d{2}:\d{2}", i.text) != None:
                 time_match = re.search(r"\d{2}:\d{2}", i.text)[0]
             else:
@@ -137,6 +141,8 @@ for link in link_mass:
             table = player_results.find('a', attrs={"href": f'{i.get("href")}'}).find_next_sibling("table")
             tr = table.find('tbody').find('tr')
             while tr != None:
+                number_enemy += 1
+
                 td = tr.findAll('td')
 
                 origin = td[0].text
@@ -146,9 +152,11 @@ for link in link_mass:
                 result_match = td[4].text
                 time1 = td[5].text
                 time2 = td[6].text
-
+ 
                 tr = tr.next_sibling
-                dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name_player, rating_player, date, tournament, time_match, status, col_man, origin, enemy, rating_enemy, result_match, time1, time2, link]
+                dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name_player, rating_player, date, tournament, time_match, status, col_man, stage, number_enemy, origin, enemy, rating_enemy, result_match, time1, time2, link]
+
+                print()
     except:
         print(link)
         e = sys.exc_info()[1]

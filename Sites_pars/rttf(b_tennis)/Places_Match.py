@@ -35,6 +35,18 @@ number_of_tables_mass = []
 
 ccilca_club_mass = []
 
+dfPlayer_Inf = pd.DataFrame({
+        'Name': pd.Series(club_mass, dtype='object'),
+        'Site club': pd.Series(official_site_club_mass, dtype='object'),
+        'Address': pd.Series(address_mass, dtype='object'),
+        'Working hours': pd.Series(working_hours_mass, dtype='object'),
+        'Contact': pd.Series(contact_mass, dtype='object'),
+        'Representative on site': pd.Series(representative_on_site_mass, dtype='object'),
+        'Number of tables': pd.Series(number_of_tables_mass, dtype='object'),
+
+
+        'Link': pd.Series(ccilca_club_mass, dtype='object'),
+})
 
 driver.get(f"https://rttf.ru/halls/?title=")
 time.sleep(2)
@@ -55,16 +67,12 @@ for link in link_mass:
     section = driver.find_element(by=By.CLASS_NAME, value='hall-info')
     p = section.find_elements(by=By.TAG_NAME, value='p')
     name = section.find_element(by=By.TAG_NAME, value='h1').text
-    date = 0
-    address = 0
-    club = 0
-    shir_dolg = 0
     official_site_club = 0
+    address = 0
     working_hours = 0
     contact = 0
     representative_on_site = 0
     number_of_tables = 0
-
 
     for glav in p:
         if re.sub(r"[:]\s.{1,300}", "", glav.text, 1) == "Адрес":
@@ -89,31 +97,12 @@ for link in link_mass:
     # except:
     #     pass
 
+    dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name, official_site_club, address, working_hours,
+                                                 contact, representative_on_site, number_of_tables, link]
 
-    address_mass.append(address)
-    club_mass.append(name)
-    official_site_club_mass.append(official_site_club)
-    working_hours_mass.append(working_hours)
-    contact_mass.append(contact)
-    representative_on_site_mass.append(representative_on_site)
-    number_of_tables_mass.append(number_of_tables)
-
-    ccilca_club_mass.append(link)
     time.sleep(1)
 
 
-dfPlayer_Inf = pd.DataFrame({
-        'Name': pd.Series(club_mass, dtype='object'),
-        'Site club': pd.Series(official_site_club_mass, dtype='object'),
-        'Address': pd.Series(address_mass, dtype='object'),
-        'Working hours': pd.Series(working_hours_mass, dtype='object'),
-        'Contact': pd.Series(contact_mass, dtype='object'),
-        'Representative on site': pd.Series(representative_on_site_mass, dtype='object'),
-        'Number of tables': pd.Series(number_of_tables_mass, dtype='object'),
-
-
-        'Link': pd.Series(ccilca_club_mass, dtype='object'),
-    })
 
 dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Places_Match(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 

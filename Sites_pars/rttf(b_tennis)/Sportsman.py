@@ -42,6 +42,22 @@ sex_mass = []
 ccilca_sportsman_mass = []
 
 
+dfPlayer_Inf = pd.DataFrame({
+        'Name': pd.Series(name_mass, dtype='object'),
+        'Rating': pd.Series(rating_mass, dtype='object'),
+        'Birthday': pd.Series(birthday_mass, dtype='object'),
+        'Citizenship': pd.Series(citizenship_mass, dtype='object'),
+        'Hand': pd.Series(hand_mass, dtype='object'),
+        'discharge': pd.Series(discharge_mass, dtype='object'),
+        'Base': pd.Series(base_mass, dtype='object'),
+        'Trim right': pd.Series(trim_right_mass, dtype='object'),
+        'Trim left': pd.Series(trim_left_mass, dtype='object'),
+        'Visiting': pd.Series(visiting_mass, dtype='object'),
+
+        'Link': pd.Series(ccilca_sportsman_mass, dtype='object'),
+    })
+
+
 
 # for i in range(1,301):
 driver.get(f"https://rttf.ru/players/")
@@ -96,37 +112,10 @@ for link in link_mass:
         elif re.sub(r"[:]\s.{1,50}", "", glav.text, 1) == "На сайте с":
             visiting = re.sub(r".{1,200}:\W.\s", "", glav.text, 1)
 
-    name_mass.append(name)
-    rating_mass.append(rating)
-    birthday_mass.append(birthday)
-    citizenship_mass.append(citizenship)
-    hand_mass.append(hand)
-    discharge_mass.append(discharge)
-    base_mass.append(base)
-    trim_right_mass.append(trim_right)
-    trim_left_mass.append(trim_left)
-    visiting_mass.append(visiting)
-
-    ccilca_sportsman_mass.append(link)
+    dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name, rating, birthday, citizenship,
+                                                 hand, discharge, base, trim_right,
+                                                 trim_left, visiting]
     time.sleep(1)
-
-
-
-
-dfPlayer_Inf = pd.DataFrame({
-        'Name': pd.Series(name_mass, dtype='object'),
-        'Rating': pd.Series(rating_mass, dtype='object'),
-        'Birthday': pd.Series(birthday_mass, dtype='object'),
-        'Citizenship': pd.Series(citizenship_mass, dtype='object'),
-        'Hand': pd.Series(hand_mass, dtype='object'),
-        'discharge': pd.Series(discharge_mass, dtype='object'),
-        'Base': pd.Series(base_mass, dtype='object'),
-        'Trim right': pd.Series(trim_right_mass, dtype='object'),
-        'Trim left': pd.Series(trim_left_mass, dtype='object'),
-        'Visiting': pd.Series(visiting_mass, dtype='object'),
-
-        'Link': pd.Series(ccilca_sportsman_mass, dtype='object'),
-    })
 
 dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Sportsman(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 
