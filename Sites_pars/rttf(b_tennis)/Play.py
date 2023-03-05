@@ -30,6 +30,7 @@ name_player_mass = []
 rating_player_mass = []
 date_mass = []
 tournament_mass = []
+
 time_match_mass = []
 status_mass = []
 col_man_mass = []
