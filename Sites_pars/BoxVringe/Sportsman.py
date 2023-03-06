@@ -49,7 +49,6 @@ for i in range(53, 156):
             link_mass.append(link12.get_attribute('href'))
 
     for link in link_mass:
-        print(i)
         driver.get(link)
 
         divs = driver.find_elements(by=By.CLASS_NAME, value='dprop')
