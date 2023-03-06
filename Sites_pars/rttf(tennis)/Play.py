@@ -13,23 +13,14 @@ import requests
 import lxml
 import sys
 
-# Здесь создаю браузер и перехожу на сайт
-options = Options()
-# options.add_experimental_option(
-#     'prefs',
-#     {
-#         'profile.managed_default_content_settings.javascript': 2,
-#         'profile.managed_default_content_settings.images': 2,
-#         'profile.managed_default_content_settings.mixed_script': 2,
-#     }
-# )
-
+# Create webdriver
 driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
 
 name_player_mass = []
 rating_player_mass = []
 date_mass = []
 tournament_mass = []
+
 time_match_mass = []
 status_mass = []
 col_man_mass = []
@@ -46,6 +37,7 @@ ccilca_sportsman_mass = []
 
 link_mass = []
 
+# Create DataFrame
 dfPlayer_Inf = pd.DataFrame({
         'Name player': pd.Series(name_player_mass, dtype='object'),
         'Rating player': pd.Series(rating_player_mass, dtype='object'),
@@ -67,34 +59,30 @@ dfPlayer_Inf = pd.DataFrame({
 })
 
 
-driver.get(f"https://rttf.ru/players/")
-time.sleep(25)
+driver.get(f"https://chrome.google.com/webstore/detail/miblocker-ad-block/jbolpidmijgjfkcpndcngibedciomlhd/related?hl=ru")
+time.sleep(10)
 
 
-# https://rttf.ru/players/314473
-
-# for link in range(1, 900000):
 for link in range(1, 5):
+    # Open website
     driver.get(f'https://rttf.ru/players/{link}')
     time.sleep(1)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
+    time.sleep(0.5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
+    time.sleep(0.5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
+    time.sleep(0.5)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)
-    # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    # time.sleep(3)
+    time.sleep(0.5)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(0.5)
 
-    page = requests.get(f'https://rttf.ru/players/{link}')
-    soup = BeautifulSoup(page.text, "lxml")
+    # Include BeautifulSoup4 and parse all tournaments
+    soup = BeautifulSoup(requests.get(f'https://rttf.ru/players/{link}').text, "lxml")
     player_results = soup.find('section', class_='player-results')
-
     try:
         a = player_results.find_all(href=re.compile("tournaments"))
-
 
         name_player = 0
         rating_player = 0
@@ -113,29 +101,23 @@ for link in range(1, 5):
         time2 = 0
 
         for i in a:
-            number_enemy = 0
-            if re.search(r"\d{2}:\d{2}", i.text) != None:
-                time_match = re.search(r"\d{2}:\d{2}", i.text)[0]
-            else:
-                time_match = 0
+            number_enemy = 0  # numerators enemy
 
+            # Information about tournament from tag <a>
+            time_match = re.search(r"\d{2}:\d{2}", i.text)[0]
             name_player = driver.find_element(by=By.TAG_NAME, value='h1').text
             rating_player = driver.find_element(by=By.CLASS_NAME, value='player-info').find_element(by=By.TAG_NAME, value='h3').find_element(by=By.TAG_NAME, value='dfn').text
             date = re.search(r"\d{2}.\d{2}.\d{4}", i.text)[0]
             tournament = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
-            # tournament = re.sub(r".{1,200}\s", "", tournament, 1)
             status = re.sub(r"\d{2}.\d{2}.\d{4}\s\d{2}:\d{2}\s|\d{2}.\d{2}.\d{4}\s", "", i.text, 1)
             status = re.sub(r"\s.{1,200}", "", status, 1)
             col_man = player_results.find('a', attrs={"href": f'{i.get("href")}'}).next_sibling.text
 
-
+            # Information with table
             table = player_results.find('a', attrs={"href": f'{i.get("href")}'}).find_next_sibling("table")
             tr = table.find('tbody').find('tr')
             while tr != None:
-                number_enemy += 1
-
                 td = tr.findAll('td')
-
                 origin = td[0].text
                 stage = td[1].text
                 enemy = td[2].text
@@ -145,13 +127,12 @@ for link in range(1, 5):
                 time2 = td[6].text
 
                 tr = tr.next_sibling
+                number_enemy += 1
+
+                # Append in DataFrame
                 dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name_player, rating_player, date, tournament, time_match, status, col_man, stage, number_enemy, origin, enemy, rating_enemy, result_match, time1, time2, link]
     except:
-        # print(link)
-        # e = sys.exc_info()[1]
-        # print(e.args[0])
         pass
-
 
 dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Play(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 
