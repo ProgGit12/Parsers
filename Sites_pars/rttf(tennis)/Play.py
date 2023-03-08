@@ -14,7 +14,7 @@ import lxml
 import sys
 
 # Create webdriver
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
 
 name_player_mass = []
 rating_player_mass = []

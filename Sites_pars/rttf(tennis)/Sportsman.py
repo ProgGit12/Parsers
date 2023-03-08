@@ -11,17 +11,8 @@ import numpy as np
 
 # Здесь создаю браузер и перехожу на сайт
 options = Options()
-# options.add_experimental_option(
-#     'prefs',
-#     {
-#         'profile.managed_default_content_settings.javascript': 2,
-#         'profile.managed_default_content_settings.images': 2,
-#         'profile.managed_default_content_settings.mixed_script': 2,
-#     }
-# )
-
 driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
-# driver.get("https://www.sports.ru/boxing/sportsman/")
+
 name_mass = []
 rating_mass = []
 birthday_mass = []
@@ -32,7 +23,6 @@ base_mass = []
 trim_right_mass = []
 trim_left_mass = []
 visiting_mass = []
-
 link_mass = []
 
 weight_mass = []
