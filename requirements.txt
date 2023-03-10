@@ -1,6 +1,6 @@
-numpy 
+numpy
 pandas
+beautifulsoup4
 selenium
-BeautifulSoup4
 requests
 lxml
