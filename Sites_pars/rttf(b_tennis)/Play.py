@@ -24,7 +24,7 @@ options = Options()
 #     }
 # )
 
-driver = webdriver.Chrome('C:/Parser-main/chromdriver/chromedriver.exe', options=options)
+driver = webdriver.Chrome('C:/Parser-main/driver/chromedriver.exe', options=options)
 PrintDf = np.arange(10, 100000, 500)
 name_player_mass = []
 rating_player_mass = []

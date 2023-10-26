@@ -12,10 +12,17 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import sys
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 
 # Create webdriver
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
+# s = Service(ChromeDriverManager().install())
+# driver = webdriver.Chrome()
+driver = webdriver.Remote(command_executor='http://localhost:4444')
 
+print("OK")
 name_player_mass = []
 rating_player_mass = []
 date_mass = []
@@ -134,7 +141,7 @@ for link in range(1, 5):
     except:
         pass
 
-dfPlayer_Inf.to_csv(r'/Users/macbookpro/Desktop/Project/Parser_data/Table_excel/rttf(tennis)/Play(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
+dfPlayer_Inf.to_csv(r'/app/Play(table-tennis).csv', index=False, sep=';', encoding='utf-8-sig')
 
 driver.close()
 driver.quit()

@@ -1,6 +1,7 @@
 numpy
 pandas
 beautifulsoup4
+webdriver-manager
 selenium
 requests
 lxml

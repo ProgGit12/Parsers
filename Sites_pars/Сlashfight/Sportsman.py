@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 
 # Здесь создаю браузер
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/driver/chromedriver')
 
 link_mass = []
 name_mass = []

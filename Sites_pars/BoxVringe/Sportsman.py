@@ -20,7 +20,7 @@ options.add_experimental_option(
     }
 )
 
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/driver/chromedriver', options=options)
 # driver.get("https://www.sports.ru/boxing/sportsman/")
 
 link_mass = []

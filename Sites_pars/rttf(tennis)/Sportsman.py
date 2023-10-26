@@ -11,7 +11,7 @@ import numpy as np
 
 # Здесь создаю браузер и перехожу на сайт
 options = Options()
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver', options=options)
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/driver/chromedriver', options=options)
 
 name_mass = []
 rating_mass = []

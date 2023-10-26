@@ -20,7 +20,7 @@ import numpy as np
 #     }
 # )
 
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser_data/chromdriver/chromedriver')
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser_data/driver/chromedriver')
 
 link_mass = []
 address_mass = []

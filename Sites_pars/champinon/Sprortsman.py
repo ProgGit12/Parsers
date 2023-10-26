@@ -12,7 +12,7 @@ import numpy as np
 # Здесь создаю браузер и перехожу на сайт
 options = Options()
 
-driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser/Programm/chromdriver/chromedriver')
+driver = webdriver.Chrome('/Users/macbookpro/Desktop/Project/Parser_data/driver/chromedriver', options=options)
 
 
 name_mass = []
@@ -55,10 +55,13 @@ dfPlayer_Inf = pd.DataFrame({
 driver.get(f"https://champinon.info/ru/boxing/")
 time.sleep(2)
 
-tr = driver.find_elements(by=By.CLASS_NAME, value='col-xs-6')
+tr = driver.find_elements(by=By.TAG_NAME, value='a')
 
-for href in tr:
-    link = href.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
+for s in tr:
+    link_mass.append(s.get_attribute("href"))
+
+for link in link_mass:
+    # link = href.find_element(by=By.TAG_NAME, value="a").get_attribute("href")
     driver.get(link)
 
     name = 0
@@ -75,11 +78,12 @@ for href in tr:
     place_of_residence = 0
 
     # col-md-8 col-sm-8
-    p = driver.find_element(by=By.CLASS_NAME, value="col-md-8").find_elements(by=By.TAG_NAME, value="p")
-    for tr in p:
-        if tr.find_element(by=By.CLASS_NAME, value="fa").text == "Имя (англ):":
-            name = tr.text
-            print()
+    # p = driver.find_element(by=By.CLASS_NAME, value="col-md-8").find_elements(by=By.TAG_NAME, value="p")
+    p = driver.find_element(by=By.CLASS_NAME, value="col-md-8")
+    # for tr in p:
+    #     if tr.find_element(by=By.CLASS_NAME, value="fa").text == "Имя (англ):":
+    #         name = tr.text
+    #         print()
 
 
     # dfPlayer_Inf.loc[len(dfPlayer_Inf.index)] = [name, rating, birthday, citizenship,
